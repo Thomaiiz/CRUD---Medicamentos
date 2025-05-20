@@ -1,4 +1,4 @@
-package model;
+package br.edu.ifsp.model;
 
 public class Usuario {
 	

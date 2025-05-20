@@ -1,4 +1,4 @@
-package controller;
+package br.edu.ifsp.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

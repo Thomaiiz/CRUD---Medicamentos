@@ -1,4 +1,4 @@
-package controller;
+package br.edu.ifsp.controller;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.DAO;
+import br.edu.ifsp.dao.DAO;
 
 /**
  * Servlet implementation class UsuarioLogin

@@ -1,9 +1,9 @@
-package dao;
+package br.edu.ifsp.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Usuario;
+import br.edu.ifsp.model.Usuario;
 
 public class DAO {
     private static List<Usuario> usuarios = new ArrayList<>();

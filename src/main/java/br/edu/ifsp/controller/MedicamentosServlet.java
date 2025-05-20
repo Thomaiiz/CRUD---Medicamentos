@@ -1,4 +1,4 @@
-package controller;
+package br.edu.ifsp.controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Medicamentos;
+import br.edu.ifsp.model.Medicamentos;
 
 /**
  * Servlet implementation class MedicamentosServlet
