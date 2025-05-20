@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page session="true" %>
+<%
+    String usuario = (String) session.getAttribute("usuarioLogado");
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -104,11 +108,26 @@
         <nav>
             <a href="#">Home</a>
             <a href="#">Medicamentos</a>
-            <a href="#">Sobre o Sistema</a>
+            <a href="sobre.html">Sobre o Sistema</a>
             <a href="#">Contato</a>
         </nav>
         <div>
-            🔍 <a class="login" href="login.jsp" style="background:#1db954; color:white; border:none; padding:5px 10px; border-radius:5px;">Entrar</a>
+            🔍
+        <%
+            if (usuario == null) {
+        %>
+            <a class="login" href="login.jsp"
+               style="background:#1db954; color:white; border:none; padding:5px 10px; border-radius:5px;">Entrar</a>
+        <%
+            } else {
+        %>
+            <a href="cadastromedicamentos.jsp"
+               style="background:#007BFF; color:white; padding:5px 10px; border-radius:5px; text-decoration:none; margin-right:10px;">Cadastrar Medicamento</a>
+            <a href="SaidaServlet"
+               style="background:#dc3545; color:white; padding:5px 10px; border-radius:5px; text-decoration:none;">Sair</a>
+        <%
+            }
+        %>
         </div>
     </header>
 
@@ -124,8 +143,62 @@
         </div>
     </div>
 
-    <div class="destaque">
+       <div class="destaque">
         <h2>Medicamentos em Destaque</h2>
         <p>Conheça nossos produtos mais vendidos</p>
         <div class="ver-todos">
-            <a href="#">Ver todos →
+            <a href="#">Ver todos →</a>
+        </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <i class="fas fa-capsules"></i>
+            <span><strong>FarmControl</strong></span>
+          </div>
+          <p>Sua saúde é nossa prioridade. Oferecemos os melhores medicamentos com preços acessíveis.</p>
+          <div class="footer-social">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="index.jsp">Início</a></li>
+            <li><a href="lista-medicamentos.jsp">Medicamentos</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Categorias</h4>
+          <ul>
+            <li><a href="#">Analgésicos</a></li>
+            <li><a href="#">Anti-inflamatórios</a></li>
+            <li><a href="#">Antibióticos</a></li>
+            <li><a href="#">Vitaminas</a></li>
+            <li><a href="#">Suplementos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo - SP</li>
+            <li><i class="fas fa-phone-alt"></i> (11) 9999-9999</li>
+            <li><i class="fas fa-envelope"></i> contato@farmcontrol.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 FarmControl. Todos os direitos reservados.
+      </div>
+    </footer>
+
+</body>
+</html>

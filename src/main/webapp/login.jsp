@@ -1,36 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Login - FarmControl</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        form {
+            width: 300px;
+            margin: auto;
+        }
+        input {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+        button {
+            background-color: #1db954;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-	<main class="container">
-		<form>
-			<h1>Bem-vindo de volta!</h1>
-			<div class="input-box">
-				<input type="text" name="login" placeholder="Usuario">
-			</div>
-			<div class="input-box">
-				<input type="text" name="senha" placeholder="senha" >
-			</div>
-			<div>
-				<label>
-					<a href="#"> Esqueci minha senha</a>
-				</label>
-			</div>
-			
-				<button type="submit">Login</button>			
-		</form>
-	
-	
-	
-	
-	</main>
-
-
+    <h2>Login</h2>
+    <form action="UsuarioLogin" method="post">
+        <input type="email" name="email" placeholder="Digite seu email" required>
+        <input type="password" name="senha" placeholder="Digite sua senha" required>
+        <button type="submit">Entrar</button>
+    </form>
 </body>
 </html>
