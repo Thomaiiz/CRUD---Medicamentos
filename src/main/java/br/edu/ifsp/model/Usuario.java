@@ -2,21 +2,31 @@ package br.edu.ifsp.model;
 
 public class Usuario {
 	
-	private String login;
+	private String email;
 	private String senha;
+	private String nome;
 	
-	public Usuario(String login, String senha) {
+	public Usuario(String email, String senha,String nome) {
 		super();
-		this.login = login;
+		this.email = email;
 		this.senha = senha;
+		this.nome = nome;
+	}
+	
+	public String getNome() {
+		return nome;
 	}
 
-	public String getLogin() {
-		return login;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {
