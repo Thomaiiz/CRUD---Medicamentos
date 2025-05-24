@@ -7,14 +7,12 @@
             <li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="sobre.jsp">Sobre</a></li>
             
-            <%-- Mostrar opções apenas para usuários logados --%>
             <% if(session.getAttribute("usuarioLogado") != null) { %>
                 <li class="nav-item"><a class="nav-link" href="cadastro-medicamento.jsp">Cadastrar Medicamento</a></li>
                 <li class="nav-item"><a class="nav-link" href="lista-medicamentos.jsp">Meus Medicamentos</a></li>
             <% } %>
         </ul>
         
-        <%-- Parte direita do menu --%>
         <div class="navbar-nav">
             <% if(session.getAttribute("usuarioLogado") != null) { %>
                 <span class="navbar-text mr-3">Olá, <%= session.getAttribute("nomeUsuario") %></span>
