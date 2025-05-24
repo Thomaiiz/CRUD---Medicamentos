@@ -1,20 +1,25 @@
 package br.edu.ifsp.controller;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import br.edu.ifsp.model.Medicamentos;
 
 /**
  * Servlet implementation class MedicamentosServlet
  */
+
+@MultipartConfig
 @WebServlet("/MedicamentosServlet")
 public class MedicamentosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -53,10 +58,14 @@ public class MedicamentosServlet extends HttpServlet {
 		 String lote = request.getParameter("lote");
 		 String dosagem = request.getParameter("dosagem");
 		 String formaFarmaceutica = request.getParameter("formaFarmaceutica");	
-
 		 LocalDate dataValidade = LocalDate.parse(dataStr);
-
-		 if (nomeComercial.isEmpty() || principioAtivo.isEmpty() || dataStr.isEmpty() || fabricante.isEmpty() || lote.isEmpty() || dosagem.isEmpty() || formaFarmaceutica.isEmpty()) {
+		 Part imagemPart = request.getPart("imagem");
+	     String nomeImagem = Paths.get(imagemPart.getSubmittedFileName()).getFileName().toString();
+	     
+	     String caminhoUpload = getServletContext().getRealPath("/img");
+	     imagemPart.write(caminhoUpload + "/" + nomeImagem);
+		 
+		 if (nomeComercial.isEmpty() || principioAtivo.isEmpty() || dataStr.isEmpty() || fabricante.isEmpty() || lote.isEmpty() || dosagem.isEmpty() || formaFarmaceutica.isEmpty() || nomeImagem.isEmpty()) {
 				String msg = "Nenhum campo pode ser vazio";	
 				getServletContext().setAttribute("mensagem", msg);
 				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
@@ -69,7 +78,7 @@ public class MedicamentosServlet extends HttpServlet {
 					lista = new ArrayList<Medicamentos>();
 				}
 				
-				Medicamentos medicamento = new Medicamentos(nomeComercial,principioAtivo,fabricante,dataValidade,lote,dosagem,formaFarmaceutica);
+				Medicamentos medicamento = new Medicamentos(nomeComercial,principioAtivo,fabricante,dataValidade,lote,dosagem,formaFarmaceutica,nomeImagem);
 
 				lista.add(medicamento);
 				

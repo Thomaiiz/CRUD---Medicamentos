@@ -8,9 +8,20 @@
 		<servlet-name>CadastroUsuarioServlet</servlet-name>
 		<servlet-class>br.edu.ifsp.controller.CadastroUsuarioServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>EditarMedicamento</display-name>
+		<servlet-name>EditarMedicamento</servlet-name>
+		<servlet-class>br.edu.ifsp.controller.EditarMedicamento</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>CadastroUsuarioServlet</servlet-name>
 		<url-pattern>/CadastroUsuarioServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditarMedicamento</servlet-name>
+		<url-pattern>/EditarMedicamento</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
