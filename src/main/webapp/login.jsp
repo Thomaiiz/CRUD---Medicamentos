@@ -4,75 +4,12 @@
 <head>
     <title>Login - FarmControl</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(to right, #00b56e, #1abc9c);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .login-container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 420px;
-        }
-
-        .login-container h2 {
-            color: #00b56e;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .form-label {
-            font-weight: 600;
-            color: #333;
-        }
-
-        .form-control {
-            border-radius: 12px;
-        }
-
-        .btn-primary {
-            background-color: #00b56e;
-            border: none;
-            border-radius: 12px;
-            padding: 10px 0;
-            font-weight: 600;
-        }
-
-        .btn-primary:hover {
-            background-color: #01935d;
-        }
-
-        .alert {
-            border-radius: 12px;
-        }
-
-        a {
-            color: #00b56e;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        p.mt-3 {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="stylelr.css">
 </head>
 <body>
     <div class="login-container">
         <h2>Login</h2>
 
-        <%-- Mensagens de erro/sucesso --%>
         <% if(request.getParameter("erro") != null) { %>
             <div class="alert alert-danger">
                 E-mail ou senha incorretos!

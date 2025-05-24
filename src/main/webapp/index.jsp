@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page session="true" %>
+<%@ page import="br.edu.ifsp.model.Usuario" %>
 <%
-    String usuario = (String) session.getAttribute("usuarioLogado");
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
 %>
 
 <!DOCTYPE html>
@@ -11,12 +12,16 @@
     <title>FarmControl</title>
     <link rel="stylesheet" href="style.css">
     <style>
+   		 html {
+    		scroll-behavior: smooth;
+		}
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1db954, #1abc9c);
             color: white;
         }
+
         header {
             display: flex;
             align-items: center;
@@ -25,48 +30,70 @@
             color: #1db954;
             padding: 1rem 2rem;
         }
+
         .logo {
             font-weight: bold;
             font-size: 1.5rem;
             display: flex;
             align-items: center;
         }
-        .logo::before {
-            content: "💊";
-            margin-right: 0.5rem;
+
+
+        nav {
+            display: flex;
+            align-items: center;
         }
+
         nav a {
             margin: 0 15px;
             color: black;
             text-decoration: none;
         }
+
         nav a:hover {
             text-decoration: underline;
         }
+
+        .search-box {
+            display: inline-block;
+        }
+
+        .search-box input {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
         .hero {
             text-align: center;
             padding: 100px 20px;
         }
+
         .hero h1 {
             font-size: 2.5rem;
             font-weight: bold;
         }
+
         .hero p {
             font-size: 1.1rem;
             margin: 20px 0;
         }
-        .search-box {
+
+        .hero .search-box {
             margin-top: 20px;
         }
-        .search-box input {
+
+        .hero .search-box input {
             padding: 10px;
             width: 300px;
             border-radius: 5px;
             border: none;
         }
+
         .buttons {
             margin-top: 20px;
         }
+
         .buttons button {
             margin: 10px;
             padding: 10px 20px;
@@ -77,18 +104,22 @@
             cursor: pointer;
             font-weight: bold;
         }
+
         .destaque {
             background: #f9f9f9;
             color: black;
             text-align: center;
             padding: 40px 20px;
         }
+
         .destaque h2 {
             font-size: 1.8rem;
         }
+
         .ver-todos {
             margin-top: 10px;
         }
+
         .ver-todos a {
             text-decoration: none;
             padding: 10px 15px;
@@ -96,110 +127,256 @@
             color: #1db954;
             border-radius: 5px;
         }
-        
+
         .login {
-        	text-decoration: none;
+            text-decoration: none;
         }
-        
+
+	.footer {
+  background-color: #014d3a;
+  color: #e0f5ec;
+  padding: 40px 20px 20px;
+  font-size: 0.95rem;
+}
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">FarmControl</div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Medicamentos</a>
-            <a href="sobre.html">Sobre o Sistema</a>
-            <a href="#">Contato</a>
-        </nav>
-        <div>
-            🔍
-        <%
-            if (usuario == null) {
-        %>
+
+<header>
+<div class="logo">
+    <img src="img/LogoFarmControl.png" alt="Logo FarmControl" style="height: 70px; margin-right: 20px;">
+    FarmControl
+</div>
+
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Medicamentos</a>
+        <a href="sobre.html">Sobre o Sistema</a>
+        <a href="#">Contato</a>
+    </nav>
+
+    <div>
+        <div class="search-box" style="display:inline-block;">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+
+        <% if (usuario == null) { %>
             <a class="login" href="login.jsp"
-               style="background:#1db954; color:white; border:none; padding:5px 10px; border-radius:5px;">Entrar</a>
-        <%
-            } else {
-        %>
+               style="background:#1db954; color:white; border:none; padding:5px 10px; border-radius:5px; margin-left:10px;">Entrar</a>
+        <% } else { %>
             <a href="cadastromedicamentos.jsp"
-               style="background:#007BFF; color:white; padding:5px 10px; border-radius:5px; text-decoration:none; margin-right:10px;">Cadastrar Medicamento</a>
-            <a href="SaidaServlet"
-               style="background:#dc3545; color:white; padding:5px 10px; border-radius:5px; text-decoration:none;">Sair</a>
-        <%
-            }
-        %>
-        </div>
-    </header>
+               style="background:#007BFF; color:white; padding:5px 10px; border-radius:5px; text-decoration:none; margin-left:10px;">Cadastrar Medicamento</a>
+            <a href="logout.jsp"
+               style="background:#dc3545; color:white; padding:5px 10px; border-radius:5px; text-decoration:none; margin-left:10px;">Sair</a>
+        <% } %>
+    </div>
+</header>
 
-    <div class="hero">
-        <h1>FarmControl: Sua Saúde, Nosso Cuidado</h1>
-        <p>Encontre os melhores medicamentos, promoções imperdíveis e lançamentos exclusivos. Qualidade e confiança para o seu bem-estar.</p>
-        <div class="search-box">
-            <input type="text" placeholder="O que você procura hoje?">
-        </div>
-        <div class="buttons">
-            <button>⚡ Ver Lançamentos</button>
-            <button>Promoções</button>
-        </div>
+<div class="hero">
+    <h1>FarmControl: Sua Saúde, Nosso Cuidado</h1>
+    <p>Encontre os melhores medicamentos, promoções imperdíveis e lançamentos exclusivos. Qualidade e confiança para o seu bem-estar.</p>
+
+    <div class="search-box">
+        <input type="text" placeholder="O que você procura hoje?">
     </div>
 
-       <div class="destaque">
-        <h2>Medicamentos em Destaque</h2>
-        <p>Conheça nossos produtos mais vendidos</p>
-        <div class="ver-todos">
-            <a href="#">Ver todos →</a>
+<div class="buttons">
+    <a href="#lancamentos">
+        <button>💸 Ver Lançamentos</button>
+    </a>
+    <a href="#promocoes">
+        <button>🚨 Promoções</button>
+    </a>
+</div>
+
+</div>
+
+<!-- Secão: Lançamentos -->
+<section id="lancamentos" style="background-color: #f3fbf6; padding: 60px 20px;">
+    <h2 style="text-align: center; color: #1db954; font-size: 2rem;">💸 Lançamentos</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 40px;">Confira as maiores novidades da FarmControl!</p>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+
+        <!-- Card 1 -->
+        <div style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; padding: 10px 15px; text-align: center;">
+            <div style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #333; padding: 3px 8px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">NOVO</div>
+            <img src="img/foto6.png" alt="Produto 1" style="height: 100px; margin: 30px auto 10px; display: block;">
+            <h4 style="font-size: 0.95rem;">Protetor Labial Carmed Glitter 3 Em 1 Tutti-frutti 10gr.</h4>
+            <p style="color: #999; text-decoration: line-through;"></p>
+            <p style="color: #e60000; font-weight: bold; font-size: 1.1rem;">R$ 24,99 <span style="font-size: 0.8rem;">no pix</span></p>
+            <p style="color: #666; font-size: 0.8rem;">ou 2x de R$ 12,99 no cartão</p>
+            <button style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; padding: 10px 15px; text-align: center;">
+            <div style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #333; padding: 3px 8px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">NOVO</div>
+            <img src="img/foto7.png" alt="Produto 2" style="height: 100px; margin: 30px auto 10px; display: block;">
+            <h4 style="font-size: 0.95rem;">Teste De Gravidez Confirme Com 1 Unidade</h4>
+            <p style="color: #999; text-decoration: line-through;"></p>
+            <p style="color: #e60000; font-weight: bold; font-size: 1.1rem;">R$ 5,99 <span style="font-size: 0.8rem;">no pix</span></p>
+            <p style="color: #666; font-size: 0.8rem;">1 unidade</p>
+            <button style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; padding: 10px 15px; text-align: center;">
+            <div style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #333; padding: 3px 8px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">NOVO</div>
+            <img src="img/foto8.png" alt="Produto 3" style="height: 100px; margin: 30px auto 10px; display: block;">
+            <h4 style="font-size: 0.95rem;">Tadalafila</h4>
+            <p style="color: #999; text-decoration: line-through;">R$ 99,22</p>
+            <p style="color: #e60000; font-weight: bold; font-size: 1.1rem;">R$ 19,90 <span style="font-size: 0.8rem;">no pix</span></p>
+            <p style="color: #666; font-size: 0.8rem;">Ultimos estoques!</p>
+            <button style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
+        </div>
+
+        <!-- Card 4 -->
+		<div style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; padding: 10px 15px; text-align: center;">
+            <div style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #333; padding: 3px 8px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">NOVO</div>
+            <img src="img/foto9.png" alt="Produto 3" style="height: 100px; margin: 30px auto 10px; display: block;">
+            <h4 style="font-size: 0.95rem;">Solucao Fisiologica Cloreto De Sodio A 0,9% Lunis 500ml</h4>
+            <p style="color: #999; text-decoration: line-through;"></p>
+            <p style="color: #e60000; font-weight: bold; font-size: 1.1rem;">R$ 7,90 <span style="font-size: 0.8rem;">no pix</span></p>
+            <p style="color: #666; font-size: 0.8rem;">Leve 3 pague 2</p>
+            <button style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
+        </div>
+        
+        <!-- Card 5 -->
+		<div style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; padding: 10px 15px; text-align: center;">
+            <div style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #333; padding: 3px 8px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">NOVO</div>
+            <img src="img/foto10.png" alt="Produto 3" style="height: 100px; margin: 30px auto 10px; display: block;">
+            <h4 style="font-size: 0.95rem;">Shampoo Anticaspa Cetoconazol Prevent Pharma 100ml</h4>
+            <p style="color: #999; text-decoration: line-through;">R$ 17,90</p>
+            <p style="color: #e60000; font-weight: bold; font-size: 1.1rem;">R$ 15,59 <span style="font-size: 0.8rem;">no pix</span></p>
+            <p style="color: #666; font-size: 0.8rem;">Ultimos estoques!</p>
+            <button style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
+        </div>
+</section>
+
+
+<!-- Seção: Ofertas Especiais -->
+<section id="promocoes" style="background-color: #f3fbf6; padding: 60px 20px;">
+    <h2 style="text-align: center; color: #1db954; font-size: 2rem;">🚨 Ofertas Especiais</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 40px;">Aproveite os melhores preços da semana! </p>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+
+        <!-- Card 1 -->
+        <div style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; padding: 10px 15px; text-align: center;">
+            <div style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #333; padding: 3px 8px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">40%</div>
+            <img src="img/foto1.png" alt="Produto 1" style="height: 100px; margin: 30px auto 10px; display: block;">
+            <h4 style="font-size: 0.95rem;">Toalha Umedecida Bimbi 100 un.</h4>
+            <p style="color: #999; text-decoration: line-through;">R$ 16,69</p>
+            <p style="color: #e60000; font-weight: bold; font-size: 1.1rem;">R$ 9,79 <span style="font-size: 0.8rem;">no pix</span></p>
+            <p style="color: #666; font-size: 0.8rem;">ou 1x de R$ 9,99 no cartão</p>
+            <button style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; padding: 10px 15px; text-align: center;">
+            <div style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #333; padding: 3px 8px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">11%</div>
+            <img src="img/foto2.png" alt="Produto 2" style="height: 100px; margin: 30px auto 10px; display: block;">
+            <h4 style="font-size: 0.95rem;">Fralda Huggies Supreme Care Hiper Xxg 54 Unidades</h4>
+            <p style="color: #999; text-decoration: line-through;">R$ 89,99</p>
+            <p style="color: #e60000; font-weight: bold; font-size: 1.1rem;">R$ 79,90 <span style="font-size: 0.8rem;">no pix</span></p>
+            <p style="color: #666; font-size: 0.8rem;">ou 2x de R$ 39,95 sem juros</p>
+            <button style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; padding: 10px 15px; text-align: center;">
+            <div style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #333; padding: 3px 8px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">80%</div>
+            <img src="img/foto3.png" alt="Produto 3" style="height: 100px; margin: 30px auto 10px; display: block;">
+            <h4 style="font-size: 0.95rem;">Tadalafila</h4>
+            <p style="color: #999; text-decoration: line-through;">R$ 99,22</p>
+            <p style="color: #e60000; font-weight: bold; font-size: 1.1rem;">R$ 19,90 <span style="font-size: 0.8rem;">no pix</span></p>
+            <p style="color: #666; font-size: 0.8rem;">Ultimos estoques!</p>
+            <button style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
+        </div>
+
+        <!-- Card 4 -->
+		<div style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; padding: 10px 15px; text-align: center;">
+            <div style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #333; padding: 3px 8px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">21%</div>
+            <img src="img/foto4.png" alt="Produto 3" style="height: 100px; margin: 30px auto 10px; display: block;">
+            <h4 style="font-size: 0.95rem;">Formula Infantil Nestonutri Lata 800g</h4>
+            <p style="color: #999; text-decoration: line-through;">R$ 68,99</p>
+            <p style="color: #e60000; font-weight: bold; font-size: 1.1rem;">R$ 58,90 <span style="font-size: 0.8rem;">no pix</span></p>
+            <p style="color: #666; font-size: 0.8rem;">ou 1x de R$ 55,00 no cartão</p>
+            <button style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
+        </div>
+        
+        <!-- Card 5 -->
+		<div style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; padding: 10px 15px; text-align: center;">
+            <div style="position: absolute; top: 10px; left: 10px; background: #ffcc00; color: #333; padding: 3px 8px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">33%</div>
+            <img src="img/foto5.png" alt="Produto 3" style="height: 100px; margin: 30px auto 10px; display: block;">
+            <h4 style="font-size: 0.95rem;">Actine Gel Para Limpeza 140gr Oleosa E Acneica Pump</h4>
+            <p style="color: #999; text-decoration: line-through;">R$ 59,90</p>
+            <p style="color: #e60000; font-weight: bold; font-size: 1.1rem;">R$ 39,90 <span style="font-size: 0.8rem;">no pix</span></p>
+            <p style="color: #666; font-size: 0.8rem;">Ultimos estoques!</p>
+            <button style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
+        </div>
+</section>
+<div class="destaque">
+    <h2>Medicamentos em Destaque</h2>
+    <p>Conheça nossos produtos mais vendidos</p>
+    <div class="ver-todos">
+        <a href="#">Ver todos →</a>
+    </div>
+</div>
+
+
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <i class="fas fa-capsules"></i>
+                <span><strong>FarmControl</strong></span>
+            </div>
+            <p>Sua saúde é nossa prioridade. Oferecemos os melhores medicamentos com preços acessíveis.</p>
+            <div class="footer-social">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h4>Links Rápidos</h4>
+            <ul>
+                <li><a href="index.jsp">Início</a></li>
+                <li><a href="lista-medicamentos.jsp">Medicamentos</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Categorias</h4>
+            <ul>
+                <li><a href="#">Analgésicos</a></li>
+                <li><a href="#">Anti-inflamatórios</a></li>
+                <li><a href="#">Antibióticos</a></li>
+                <li><a href="#">Vitaminas</a></li>
+                <li><a href="#">Suplementos</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contato</h4>
+            <ul class="footer-contact">
+                <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo - SP</li>
+                <li><i class="fas fa-phone-alt"></i> (11) 9999-9999</li>
+                <li><i class="fas fa-envelope"></i> contato@farmcontrol.com</li>
+            </ul>
         </div>
     </div>
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-col">
-          <div class="footer-logo">
-            <i class="fas fa-capsules"></i>
-            <span><strong>FarmControl</strong></span>
-          </div>
-          <p>Sua saúde é nossa prioridade. Oferecemos os melhores medicamentos com preços acessíveis.</p>
-          <div class="footer-social">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-twitter"></i>
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4>Links Rápidos</h4>
-          <ul>
-            <li><a href="index.jsp">Início</a></li>
-            <li><a href="lista-medicamentos.jsp">Medicamentos</a></li>
-            <li><a href="sobre.html">Sobre Nós</a></li>
-            <li><a href="#">Contato</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Categorias</h4>
-          <ul>
-            <li><a href="#">Analgésicos</a></li>
-            <li><a href="#">Anti-inflamatórios</a></li>
-            <li><a href="#">Antibióticos</a></li>
-            <li><a href="#">Vitaminas</a></li>
-            <li><a href="#">Suplementos</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contato</h4>
-          <ul class="footer-contact">
-            <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo - SP</li>
-            <li><i class="fas fa-phone-alt"></i> (11) 9999-9999</li>
-            <li><i class="fas fa-envelope"></i> contato@farmcontrol.com</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
+    <div class="footer-bottom">
         © 2025 FarmControl. Todos os direitos reservados.
-      </div>
-    </footer>
+    </div>
+</footer>
 
 </body>
 </html>
