@@ -15,9 +15,12 @@ public class Medicamentos implements Serializable{
 	private String dosagem;
 	private String formaFarmaceutica;
 	private String imagem;
+	private String descricao;
+	private double preco;
+
 	
 	public Medicamentos(String nomeComercial, String principioAtivo, String fabricante, LocalDate dataValidade,
-			String lote, String dosagem, String formaFarmaceutica,String imagem) {
+			String lote, String dosagem, String formaFarmaceutica,String imagem,String descricao,double preco) {
 		super();
 		this.nomeComercial = nomeComercial;
 		this.principioAtivo = principioAtivo;
@@ -27,6 +30,8 @@ public class Medicamentos implements Serializable{
 		this.dosagem = dosagem;
 		this.formaFarmaceutica = formaFarmaceutica;
 		this.imagem = imagem;
+		this.descricao = descricao;
+		this.preco = preco;
 	}
 
 	public String getNomeComercial() {
@@ -92,6 +97,22 @@ public class Medicamentos implements Serializable{
 
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 
 	public static long getSerialversionuid() {

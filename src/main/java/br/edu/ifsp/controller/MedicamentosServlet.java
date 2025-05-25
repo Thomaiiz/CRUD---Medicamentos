@@ -45,46 +45,53 @@ public class MedicamentosServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		 if (request.getSession().getAttribute("usuarioLogado") == null) {
-             response.sendRedirect("login.jsp");
-             return;
-         }
-			
-		 String nomeComercial = request.getParameter("nomeComercial");
-		 String principioAtivo = request.getParameter("principioAtivo");
-		 String fabricante = request.getParameter("fabricante");
-		 String dataStr = request.getParameter("dataValidade");
-		 String lote = request.getParameter("lote");
-		 String dosagem = request.getParameter("dosagem");
-		 String formaFarmaceutica = request.getParameter("formaFarmaceutica");	
-		 LocalDate dataValidade = LocalDate.parse(dataStr);
-		 Part imagemPart = request.getPart("imagem");
-	     String nomeImagem = Paths.get(imagemPart.getSubmittedFileName()).getFileName().toString();
-	     
-	     String caminhoUpload = getServletContext().getRealPath("/img");
-	     imagemPart.write(caminhoUpload + "/" + nomeImagem);
-		 
-		 if (nomeComercial.isEmpty() || principioAtivo.isEmpty() || dataStr.isEmpty() || fabricante.isEmpty() || lote.isEmpty() || dosagem.isEmpty() || formaFarmaceutica.isEmpty() || nomeImagem.isEmpty()) {
-				String msg = "Nenhum campo pode ser vazio";	
-				getServletContext().setAttribute("mensagem", msg);
-				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-			
-			} else {
+
+		if (request.getSession().getAttribute("usuarioLogado") == null) {
+			response.sendRedirect("login.jsp");
+			return;
+		}
+
+		String nomeComercial = request.getParameter("nomeComercial");
+		String principioAtivo = request.getParameter("principioAtivo");
+		String fabricante = request.getParameter("fabricante");
+		String dataStr = request.getParameter("dataValidade");
+		String lote = request.getParameter("lote");
+		String dosagem = request.getParameter("dosagem");
+		String formaFarmaceutica = request.getParameter("formaFarmaceutica");
+		String descricao = request.getParameter("descricao");
+		String precoStr = request.getParameter("preco");
+
+		LocalDate dataValidade = LocalDate.parse(dataStr);
+		Part imagemPart = request.getPart("imagem");
+		String nomeImagem = Paths.get(imagemPart.getSubmittedFileName()).getFileName().toString();
+
+		String caminhoUpload = getServletContext().getRealPath("/img");
+		imagemPart.write(caminhoUpload + "/" + nomeImagem);
+
+		if (nomeComercial.isEmpty() || principioAtivo.isEmpty() || dataStr.isEmpty() || fabricante.isEmpty()
+				|| lote.isEmpty() || dosagem.isEmpty() || formaFarmaceutica.isEmpty()
+				|| nomeImagem.isEmpty() || descricao.isEmpty() || precoStr.isEmpty()) {
+
+			String msg = "Nenhum campo pode ser vazio";
+			getServletContext().setAttribute("mensagem", msg);
+			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			return;
+		}
+
+		double preco = Double.parseDouble(precoStr.replace(",", "."));
+
+		ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) getServletContext().getAttribute("lista");
+
+		if (lista == null) {
+			lista = new ArrayList<Medicamentos>();
+		}
 				
-				ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) getServletContext().getAttribute("lista");
-				
-				if(lista == null) {
-					lista = new ArrayList<Medicamentos>();
-				}
-				
-				Medicamentos medicamento = new Medicamentos(nomeComercial,principioAtivo,fabricante,dataValidade,lote,dosagem,formaFarmaceutica,nomeImagem);
+				Medicamentos medicamento = new Medicamentos(nomeComercial,principioAtivo,fabricante,dataValidade,lote,dosagem,formaFarmaceutica,nomeImagem,descricao,preco);
 
 				lista.add(medicamento);
 				
 				getServletContext().setAttribute("lista", lista);
 
-				getServletContext().getRequestDispatcher("/resposta.jsp").forward(request, response);
+				response.sendRedirect("index.jsp"); 
 			}
-	}
 }
