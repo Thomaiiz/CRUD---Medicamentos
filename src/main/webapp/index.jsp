@@ -14,109 +14,8 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 <head>
 <meta charset="UTF-8">
 <title>FarmControl</title>
-<link rel="stylesheet" href="style.css">
-<style>
-body {
-	margin: 0;
-	font-family: Arial, sans-serif;
-	background: linear-gradient(135deg, #1db954, #1abc9c);
-	color: white;
-}
+<link rel="stylesheet" href="styleindex.css">
 
-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background: white;
-	color: #1db954;
-	padding: 1rem 2rem;
-}
-
-.logo {
-	font-weight: bold;
-	font-size: 1.5rem;
-	display: flex;
-	align-items: center;
-}
-
-nav a {
-	margin: 0 15px;
-	color: black;
-	text-decoration: none;
-}
-
-nav a:hover {
-	text-decoration: underline;
-}
-
-.hero {
-	text-align: center;
-	padding: 100px 20px;
-}
-
-.hero h1 {
-	font-size: 2.5rem;
-	font-weight: bold;
-}
-
-.hero p {
-	font-size: 1.1rem;
-	margin: 20px 0;
-}
-
-.search-box {
-	margin-top: 20px;
-}
-
-.search-box input {
-	padding: 10px;
-	width: 300px;
-	border-radius: 5px;
-	border: none;
-}
-
-.buttons {
-	margin-top: 20px;
-}
-
-.buttons button {
-	margin: 10px;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 5px;
-	background: white;
-	color: #1db954;
-	cursor: pointer;
-	font-weight: bold;
-}
-
-.destaque {
-	background: #f9f9f9;
-	color: black;
-	text-align: center;
-	padding: 40px 20px;
-}
-
-.destaque h2 {
-	font-size: 1.8rem;
-}
-
-.ver-todos {
-	margin-top: 10px;
-}
-
-.ver-todos a {
-	text-decoration: none;
-	padding: 10px 15px;
-	border: 2px solid #1db954;
-	color: #1db954;
-	border-radius: 5px;
-}
-
-.login {
-	text-decoration: none;
-}
-</style>
 </head>
 <body>
 	<header>
@@ -126,7 +25,7 @@ nav a:hover {
     FarmControl
 </div>
 
-
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav>
         <a href="#">Home</a>
         <a href="#">Medicamentos</a>
@@ -134,7 +33,7 @@ nav a:hover {
         <a href="#">Contato</a>
     </nav>
 
-    <div>
+     <div class="header-actions">
         <div class="search-box" style="display:inline-block;">
             <input type="text" placeholder="Pesquisar...">
         </div>
@@ -149,6 +48,8 @@ nav a:hover {
                style="background:#dc3545; color:white; padding:5px 10px; border-radius:5px; text-decoration:none; margin-left:10px;">Sair</a>
         <% } %>
     </div>
+    
+  
 </header>
 
 <div class="hero">
@@ -360,26 +261,6 @@ nav a:hover {
 				</div>
 			</div>
 
-			<div class="footer-col">
-				<h4>Links Rápidos</h4>
-				<ul>
-					<li><a href="index.jsp">Início</a></li>
-					<li><a href="lista-medicamentos.jsp">Medicamentos</a></li>
-					<li><a href="sobre.html">Sobre Nós</a></li>
-					<li><a href="#">Contato</a></li>
-				</ul>
-			</div>
-
-			<div class="footer-col">
-				<h4>Categorias</h4>
-				<ul>
-					<li><a href="#">Analgésicos</a></li>
-					<li><a href="#">Anti-inflamatórios</a></li>
-					<li><a href="#">Antibióticos</a></li>
-					<li><a href="#">Vitaminas</a></li>
-					<li><a href="#">Suplementos</a></li>
-				</ul>
-			</div>
 
 			<div class="footer-col">
 				<h4>Contato</h4>
@@ -395,5 +276,6 @@ nav a:hover {
 			reservados.</div>
 	</footer>
 
+<script src="script.js"></script>
 </body>
 </html>
