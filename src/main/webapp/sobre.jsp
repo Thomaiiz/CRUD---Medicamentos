@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page session="true" %>
+<%
+String usuario = (String) session.getAttribute("usuarioLogado");
+%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,11 +22,22 @@
 		<nav>
 			<ul>
 				<li><a href="index.jsp">Home</a></li>
-				<li><a href="sobre.html">Sobre o Sistema</a></li>
+				<li><a href="sobre.jsp">Sobre o Sistema</a></li>
 			</ul>
 		</nav>
-		<a class="login" href="login.jsp"
-				style="background: #1db954; color: white; border: none; padding: 5px 10px; border-radius: 5px; margin-left: 10px;">Entrar</a>
+		
+		<% if (usuario == null) { %>
+    <a class="login" href="login.jsp"
+       style="background: #1db954; color: white; border: none; padding: 5px 10px; border-radius: 5px; margin-left: 10px;">
+       Entrar
+    </a>
+<% } else { %>
+    <a href="logout.jsp"
+       style="background: #dc3545; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; margin-left: 10px;">
+       Sair
+    </a>
+<% } %>
+
 	</header>
 
 	<div class="container">
@@ -66,36 +83,8 @@
 				</div>
 			</div>
 
-			<div class="footer-col">
-				<h4>Links Rápidos</h4>
-				<ul>
-					<li><a href="index.jsp">Início</a></li>
-					<li><a href="lista-medicamentos.jsp">Medicamentos</a></li>
-					<li><a href="sobre.html">Sobre Nós</a></li>
-					<li><a href="#">Contato</a></li>
-				</ul>
-			</div>
 
-			<div class="footer-col">
-				<h4>Categorias</h4>
-				<ul>
-					<li><a href="#">Analgésicos</a></li>
-					<li><a href="#">Anti-inflamatórios</a></li>
-					<li><a href="#">Antibióticos</a></li>
-					<li><a href="#">Vitaminas</a></li>
-					<li><a href="#">Suplementos</a></li>
-				</ul>
-			</div>
 
-			<div class="footer-col">
-				<h4>Contato</h4>
-				<ul class="footer-contact">
-					<li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000,
-						São Paulo - SP</li>
-					<li><i class="fas fa-phone-alt"></i> (11) 9999-9999</li>
-					<li><i class="fas fa-envelope"></i> contato@farmcontrol.com</li>
-				</ul>
-			</div>
 		</div>
 		<div class="footer-bottom">© 2025 FarmControl. Todos os direitos
 			reservados.</div>

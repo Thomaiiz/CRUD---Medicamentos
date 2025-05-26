@@ -27,7 +27,7 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 
 		<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 		<nav>
-			<a href="#">Home</a> <a href="sobre.html">Sobre o Sistema</a>
+			<a href="#">Home</a> <a href="sobre.jsp">Sobre o Sistema</a>
 
 			<%
 			if (usuario != null) {

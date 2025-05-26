@@ -23,7 +23,7 @@
 
         <nav>
             <a href="index.jsp">Home</a>
-            <a href="sobre.html">Sobre o Sistema</a>
+            <a href="sobre.jsp">Sobre o Sistema</a>
             <a href="config.jsp">Configurações Pessoais</a>
         </nav>
 
@@ -38,5 +38,7 @@
         <p>Você está logado como: <strong><%= usuarioLogado %></strong></p>
 
     </main>
+    
+    
 </body>
 </html>
