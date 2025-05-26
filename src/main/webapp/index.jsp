@@ -29,6 +29,15 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 		<nav>
 			<a href="#">Home</a> <a href="#">Medicamentos</a> <a
 				href="sobre.html">Sobre o Sistema</a>
+
+			<%
+			if (usuario != null) {
+			%>
+			<a href="config.jsp">Configurações Pessoais</a>
+			<%
+			}
+			%>
+			
 		</nav>
 
 		<div class="header-actions">
@@ -296,6 +305,7 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 			if (lista != null && !lista.isEmpty()) {
 				for (Medicamentos m : lista) {
 			%>
+		<a href="detalhes.jsp?nome=<%= java.net.URLEncoder.encode(m.getNomeComercial(), "UTF-8") %>" style="text-decoration: none; color: inherit;">	
 			<div class="card">
 				<img class="card-img-top" src="img/<%=m.getImagem()%>"
 					alt="<%=m.getNomeComercial()%>">
@@ -322,6 +332,7 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 						<button type="submit" class="botao excluir">Excluir</button>
 					</form>
 				</div>
+		</a>		
 
 				<%
 				}
