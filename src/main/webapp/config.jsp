@@ -23,7 +23,6 @@
 
         <nav>
             <a href="index.jsp">Home</a>
-            <a href="#">Medicamentos</a>
             <a href="sobre.html">Sobre o Sistema</a>
             <a href="config.jsp">Configurações Pessoais</a>
         </nav>

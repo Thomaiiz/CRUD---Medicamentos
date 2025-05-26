@@ -68,7 +68,6 @@ nav a {
   margin-right: 5px;
 }
 
-/* Conteúdo */
 .container {
   max-width: 1100px;
   margin: 60px auto;
@@ -127,12 +126,10 @@ nav a {
 
 .footer-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: auto;
-  gap: 30px;
+  justify-content: center; 
+  text-align: center; 
 }
+
 
 .footer-col {
   flex: 1 1 220px;

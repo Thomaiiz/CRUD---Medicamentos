@@ -23,11 +23,14 @@ if (lista != null) {
 <head>
 <meta charset="UTF-8">
 <title>Editar Medicamento</title>
+<link rel="stylesheet" href="styleeditar.css">
+
 </head>
 <body>
 	<%
 	if (selecionado != null) {
 	%>
+	<div class="container">
 	<h1>
 		Editar Medicamento:
 		<%=selecionado.getNomeComercial()%></h1>
@@ -56,5 +59,6 @@ if (lista != null) {
 	<%
 	}
 	%>
+	 </div>
 </body>
 </html>

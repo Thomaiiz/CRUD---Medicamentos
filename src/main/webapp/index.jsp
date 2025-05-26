@@ -27,17 +27,24 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 
 		<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 		<nav>
-			<a href="#">Home</a> <a href="#">Medicamentos</a> <a
-				href="sobre.html">Sobre o Sistema</a>
+			<a href="#">Home</a> <a href="sobre.html">Sobre o Sistema</a>
 
 			<%
 			if (usuario != null) {
 			%>
-			<a href="config.jsp">Configurações Pessoais</a>
+			<a href="config.jsp">Configurações </a>
 			<%
 			}
 			%>
-			
+
+			<%
+			if (usuario != null) {
+			%>
+			<a href="visualizarmedicamentos.jsp">Medicamentos Cadastrados</a>
+			<%
+			}
+			%>
+
 		</nav>
 
 		<div class="header-actions">
@@ -84,7 +91,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 
 	</div>
 
-	<!-- Secão: Lançamentos -->
 	<section id="lancamentos"
 		style="background-color: #f3fbf6; padding: 60px 20px;">
 		<h2 style="text-align: center; color: #1db954; font-size: 2rem;">💸
@@ -95,7 +101,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 		<div
 			style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
 
-			<!-- Card 1 -->
 			<div
 				style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative; padding: 10px 15px; text-align: center;">
 				<div
@@ -114,7 +119,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 					style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
 			</div>
 
-			<!-- Card 2 -->
 			<div
 				style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative; padding: 10px 15px; text-align: center;">
 				<div
@@ -132,7 +136,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 					style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
 			</div>
 
-			<!-- Card 3 -->
 			<div
 				style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative; padding: 10px 15px; text-align: center;">
 				<div
@@ -149,7 +152,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 					style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
 			</div>
 
-			<!-- Card 4 -->
 			<div
 				style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative; padding: 10px 15px; text-align: center;">
 				<div
@@ -167,7 +169,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 					style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
 			</div>
 
-			<!-- Card 5 -->
 			<div
 				style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative; padding: 10px 15px; text-align: center;">
 				<div
@@ -187,7 +188,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 	</section>
 
 
-	<!-- Seção: Ofertas Especiais -->
 	<section id="promocoes"
 		style="background-color: #f3fbf6; padding: 60px 20px;">
 		<h2 style="text-align: center; color: #1db954; font-size: 2rem;">🚨
@@ -198,7 +198,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 		<div
 			style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
 
-			<!-- Card 1 -->
 			<div
 				style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative; padding: 10px 15px; text-align: center;">
 				<div
@@ -216,7 +215,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 					style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
 			</div>
 
-			<!-- Card 2 -->
 			<div
 				style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative; padding: 10px 15px; text-align: center;">
 				<div
@@ -235,7 +233,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 					style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
 			</div>
 
-			<!-- Card 3 -->
 			<div
 				style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative; padding: 10px 15px; text-align: center;">
 				<div
@@ -252,7 +249,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 					style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
 			</div>
 
-			<!-- Card 4 -->
 			<div
 				style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative; padding: 10px 15px; text-align: center;">
 				<div
@@ -271,7 +267,6 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 					style="margin-top: 10px; background: #1db954; border: none; color: white; padding: 8px 0; width: 100%; border-radius: 8px; font-weight: bold;">ADICIONAR</button>
 			</div>
 
-			<!-- Card 5 -->
 			<div
 				style="background: white; width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative; padding: 10px 15px; text-align: center;">
 				<div
@@ -305,50 +300,54 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 			if (lista != null && !lista.isEmpty()) {
 				for (Medicamentos m : lista) {
 			%>
-		<a href="detalhes.jsp?nome=<%= java.net.URLEncoder.encode(m.getNomeComercial(), "UTF-8") %>" style="text-decoration: none; color: inherit;">	
-			<div class="card">
-				<img class="card-img-top" src="img/<%=m.getImagem()%>"
-					alt="<%=m.getNomeComercial()%>">
+			<a
+				href="detalhes.jsp?nome=<%=java.net.URLEncoder.encode(m.getNomeComercial(), "UTF-8")%>"
+				style="text-decoration: none; color: inherit;">
+				<div class="card">
+					<img class="card-img-top" src="img/<%=m.getImagem()%>"
+						alt="<%=m.getNomeComercial()%>">
 
-				<h3 style="font-size: 1rem; margin: 10px 0 5px; color: #333;"><%=m.getNomeComercial()%></h3>
-				<p style="font-size: 0.85rem; color: #777;"><%=m.getDescricao()%></p>
-				<p style="font-weight: bold; font-size: 1rem; color: #1db954;">
-					R$
-					<%=String.format("%.2f", m.getPreco())%></p>
+					<h3 class="card-title"><%=m.getNomeComercial()%></h3>
+					<p class="descricao"><%=m.getDescricao()%></p>
+					<p class="preco">
+						R$
+						<%=String.format("%.2f", m.getPreco())%>
+					</p>
 
-				<%
-				if (usuario != null) {
-				%>
-				<p style="font-size: 0.9rem;"><%=m.getPrincipioAtivo()%></p>
-				<div class="botoes-acao">
-					<form action="editar.jsp" method="get">
-						<input type="hidden" name="nome" value="<%=m.getNomeComercial()%>">
-						<button type="submit" class="botao editar">Editar</button>
-					</form>
+					<%
+					if (usuario != null) {
+					%>
+					<p style="font-size: 0.9rem;"><%=m.getPrincipioAtivo()%></p>
+					<div class="botoes-acao">
+						<form action="editar.jsp" method="get">
+							<input type="hidden" name="nome"
+								value="<%=m.getNomeComercial()%>">
+							<button type="submit" class="botao editar">Editar</button>
+						</form>
 
-					<form action="RemoverMedicamentoServlet" method="post">
-						<input type="hidden" name="nomeComercial"
-							value="<%=m.getNomeComercial()%>">
-						<button type="submit" class="botao excluir">Excluir</button>
-					</form>
-				</div>
-		</a>		
+						<form action="RemoverMedicamentoServlet" method="post">
+							<input type="hidden" name="nomeComercial"
+								value="<%=m.getNomeComercial()%>">
+							<button type="submit" class="botao excluir">Excluir</button>
+						</form>
+					</div>
+			</a>
 
-				<%
-				}
-				%>
-
-
-			</div>
-			<%
-			}
-			} else {
-			%>
-			<p style="text-align: center;">Nenhum medicamento cadastrado
-				ainda.</p>
 			<%
 			}
 			%>
+
+
+		</div>
+		<%
+		}
+		} else {
+		%>
+		<p style="text-align: center;">Nenhum medicamento cadastrado
+			ainda.</p>
+		<%
+		}
+		%>
 		</div>
 	</main>
 
@@ -367,15 +366,7 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 			</div>
 
 
-			<div class="footer-col">
-				<h4>Contato</h4>
-				<ul class="footer-contact">
-					<li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000,
-						São Paulo - SP</li>
-					<li><i class="fas fa-phone-alt"></i> (11) 9999-9999</li>
-					<li><i class="fas fa-envelope"></i> contato@farmcontrol.com</li>
-				</ul>
-			</div>
+
 		</div>
 		<div class="footer-bottom">© 2025 FarmControl. Todos os direitos
 			reservados.</div>
