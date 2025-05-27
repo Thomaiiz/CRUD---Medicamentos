@@ -4,7 +4,6 @@ body {
   background-color: #e6fff2;
 }
 
-/* Cabeçalho */
 header {
   background-color: white;
   display: flex;
@@ -126,10 +125,12 @@ nav a {
 
 .footer-container {
   display: flex;
-  justify-content: center; 
-  text-align: center; 
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
 }
-
 
 .footer-col {
   flex: 1 1 220px;

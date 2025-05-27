@@ -21,7 +21,7 @@ public class CadastroUsuarioServlet extends HttpServlet {
         String senha = request.getParameter("senha");
         String nome = request.getParameter("nome");
         
-        if(email == null || email.isEmpty() || senha == null || senha.isEmpty()) {
+        if(email == null || email.isEmpty() || senha == null || senha.isEmpty() || nome.isEmpty() || nome == null ){
             response.sendRedirect("registro.jsp?erro=1"); 
             return;
         }

@@ -5,25 +5,11 @@ body {
     color: white;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
-    color: #1db954;
-    padding: 1rem 2rem;
-}
-
 .logo {
     font-weight: bold;
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-}
-
-.logo img {
-    height: 70px;
-    margin-right: 20px;
 }
 
 nav a {
@@ -293,7 +279,7 @@ header nav {
 
 header {
 	display: flex;
-	align-itens: center;
+	align-items: center;
 	justify-content: space-between;
 	background: #fff;
 	color: #1db954;
@@ -347,6 +333,16 @@ header {
   }
   
   .header-actions { display: none; }
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 30px;
 }
 
 .card {

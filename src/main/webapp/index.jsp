@@ -62,7 +62,7 @@ ArrayList<Medicamentos> lista = (ArrayList<Medicamentos>) application.getAttribu
 			%>
 			<a href="cadastromedicamentos.jsp"
 				style="background: #007BFF; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; margin-left: 10px;">Cadastrar
-				Medicamento</a> <a href="logout.jsp"
+				Medicamento</a> <a href="SaidaServlet"
 				style="background: #dc3545; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; margin-left: 10px;">Sair</a>
 			<%
 			}
