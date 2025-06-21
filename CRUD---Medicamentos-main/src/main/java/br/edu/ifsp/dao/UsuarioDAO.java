@@ -18,7 +18,11 @@ public class UsuarioDAO {
 	public boolean adicionarUsuario(Usuario u) {
 		
 		try {
+<<<<<<< HEAD
 			FileWriter fw = new FileWriter("/home/thomaz/Documentos/usuarios.json",true);
+=======
+			FileWriter fw = new FileWriter("E:/Downloads/usuarios.json",true);
+>>>>>>> ca8d6607dc8d045c1a8606db8f800a5220c96619
 			PrintWriter pw = new PrintWriter(fw);
 			Gson gson = new Gson();
 			String json = gson.toJson(u);
@@ -33,14 +37,22 @@ public class UsuarioDAO {
 	}
 	
 	public List<Usuario> getUsuarios() {
+<<<<<<< HEAD
 		File arquivo = new File("/home/thomaz/Documentos/usuarios.json");
+=======
+		File arquivo = new File("E:/Downloads/usuarios.json");
+>>>>>>> ca8d6607dc8d045c1a8606db8f800a5220c96619
 		List<Usuario> lista = new ArrayList<>();
 		Gson gson = new Gson();
 		
 		try(Scanner sc = new Scanner(arquivo)){
 			while(sc.hasNextLine()) {
 				String linha = sc.nextLine();
+<<<<<<< HEAD
 				Usuario u = gson.fromJson(linha, Usuario.class);
+=======
+				Usuario u = gson.fromJson("linha", Usuario.class);
+>>>>>>> ca8d6607dc8d045c1a8606db8f800a5220c96619
 				lista.add(u);
 			}
 		}
@@ -55,7 +67,11 @@ public class UsuarioDAO {
 		List<Usuario> lista = getUsuarios();
 		
 		for(Usuario u: lista) {
+<<<<<<< HEAD
 			if(u.getEmail().equals(email) && u.getSenha().equals(senha)) {
+=======
+			if(u.getEmail().equals(email) && u.getSenha().equals(lista)) {
+>>>>>>> ca8d6607dc8d045c1a8606db8f800a5220c96619
 				return u;
 			}
 		}

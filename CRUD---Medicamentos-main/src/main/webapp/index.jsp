@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+>>>>>>> ca8d6607dc8d045c1a8606db8f800a5220c96619
 	pageEncoding="UTF-8"%>
 <%@ page session="true"%>
 <%@page import="java.util.ArrayList"%>

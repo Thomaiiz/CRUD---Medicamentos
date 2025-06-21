@@ -57,6 +57,7 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+<<<<<<< HEAD
 		
 		<dependency>
     		<groupId>com.google.code.gson</groupId>
@@ -64,6 +65,8 @@
     		<version>2.10.1</version>
 		</dependency>
 		
+=======
+>>>>>>> ca8d6607dc8d045c1a8606db8f800a5220c96619
 	</dependencies>
 	
 </project>
