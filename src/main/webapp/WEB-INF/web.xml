@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" 
+         version="2.4" id="WebApp_ID">
+
+    <display-name>Farmacia</display-name>
+
+    <servlet>
+        <display-name>CadastroUsuarioServlet</display-name>
+        <servlet-name>CadastroUsuarioServlet</servlet-name>
+        <servlet-class>br.edu.ifsp.controller.CadastroUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <display-name>EditarMedicamento</display-name>
+        <servlet-name>EditarMedicamento</servlet-name>
+        <servlet-class>br.edu.ifsp.controller.EditarMedicamento</servlet-class>
+    </servlet>
+    <servlet>
+        <display-name>RemoverMedicamento</display-name>
+        <servlet-name>RemoverMedicamento</servlet-name>
+        <servlet-class>br.edu.ifsp.controller.RemoverMedicamento</servlet-class>
+    </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>CarregarMedicamentosServlet</display-name>
+    	<servlet-name>CarregarMedicamentosServlet</servlet-name>
+    	<servlet-class>br.edu.ifsp.controller.CarregarMedicamentosServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CadastroUsuarioServlet</servlet-name>
+        <url-pattern>/CadastroUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarMedicamento</servlet-name>
+        <url-pattern>/EditarMedicamento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoverMedicamento</servlet-name>
+        <url-pattern>/RemoverMedicamento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>CarregarMedicamentosServlet</servlet-name>
+    	<url-pattern>/CarregarMedicamentosServlet</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
