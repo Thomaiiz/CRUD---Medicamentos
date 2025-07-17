@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<title>Cadastrar Medicamento</title>
+<script src="assets/js/CadastrarMedicamento.js" defer></script>
+<link rel="stylesheet" href="assets/css/cadastrar.css">
+</head>
+<body>
+
+	<a href="index.html" class="back-button">← Voltar</a>
+	<div class="form-container">
+		<h1>Cadastrar Medicamento</h1>
+
+		<form id="formMedicamento" action="MedicamentosServlet" method="post"
+			enctype="multipart/form-data">
+			<label>Nome Comercial: <input type="text"
+				name="nomeComercial" required>
+			</label> <label>Princípio Ativo: <input type="text"
+				name="principioAtivo" required>
+			</label> <label>Fabricante: <input type="text" name="fabricante"
+				required>
+			</label> <label>Data de Validade: <input type="date"
+				name="dataValidade" required>
+			</label> <label>Lote: <input type="text" name="lote" required>
+			</label> <label>Dosagem: <input type="text" name="dosagem" required>
+			</label> <label>Forma Farmacêutica: <input type="text"
+				name="formaFarmaceutica" required>
+			</label> <label>Imagem: <input type="file" name="imagem"
+				accept="image/*" required>
+			</label> <label>Categoria: <select name="categoria" required>
+					<option value="" disabled selected>Selecione uma
+						categoria…</option>
+					<option value="analgesico">Analgésico</option>
+					<option value="antibiotico">Antibiótico</option>
+					<option value="antiinflamatorio">Anti-inflamatório</option>
+					<option value="antigripal">Antigripal</option>
+			</select>
+			</label> <label>Seção: <select name="secao" required>
+					<option value="" disabled selected>Escolha a seção…</option>
+					<option value="lancamento">Lançamento</option>
+					<option value="oferta">Oferta Especial</option>
+					<option value="cadastrado">Medicamento Cadastrado</option>
+			</select>
+			</label>
+
+			<button type="submit">Cadastrar</button>
+		</form>
+
+		<div id="mensagem"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.4;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #27ae60;
+  padding: 1rem 2rem;
+  color: #000;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+header .logo img {
+  height: 50px;
+  margin-right: 0.5rem;
+}
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+header nav a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+header nav a:hover {
+  text-decoration: underline;
+}
+header .search-box {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+header .search-box input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+header .search-box button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.main-content {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.main-content h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: black;
+}
+
+#mensagem {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #c82333;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.card {
+  background: #f9f9f9;
+  width: 230px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-img-top {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background: #fff;
+}
+.card h3 {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.25rem 0;
+}
+.botoes-acao {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: #fff;
+}
+.botoes-acao .botao {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.botao.editar {
+  background: #ffc107;
+  color: #000;
+}
+.botao.excluir {
+  background: #dc3545;
+  color: #fff;
+}
+.botao.detalhes {
+  background: #27ae60;
+  color: #fff;
+}
+
+.footer {
+	background-color: #014d3a;
+	color: #e0f5ec;
+	padding: 40px 20px 20px;
+	font-size: 0.95rem;
+}
+
+.footer-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	max-width: 1200px;
+	margin: auto;
+	gap: 30px;
+}
+
+.footer-col {
+	flex: 1 1 220px;
+}
+
+.footer-logo {
+	display: flex;
+	align-items: center;
+	font-size: 1.3rem;
+	margin-bottom: 10px;
+}
+
+.footer-logo i {
+	margin-right: 8px;
+	font-size: 1.4rem;
+	color: #00b36b;
+}
+
+.footer-col p {
+	margin-bottom: 10px;
+	color: #c2e0d3;
+}
+
+.footer-col h4 {
+	margin-bottom: 10px;
+	color: #d0fff0;
+}
+
+.footer-col ul {
+	list-style: none;
+	padding: 0;
+}
+
+.footer-col ul li {
+	margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+	color: #e0f5ec;
+	text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+	text-decoration: underline;
+}
+
+.footer-social i {
+	font-size: 1.2rem;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.footer-contact i {
+	margin-right: 8px;
+}
+
+.footer-bottom {
+	text-align: center;
+	padding-top: 20px;
+	border-top: 1px solid #26735c;
+	font-size: 0.85rem;
+	color: #b2dacf;
+}
+
+#authLink {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+#authLink.btn-entrar {
+  background-color: #333;
+}
+#authLink.btn-entrar:hover {
+  background-color: #333;
+}
+
+#authLink.btn-sair {
+  background-color: #DC3545;
+}
+#authLink.btn-sair:hover {
+  background-color: #C82333;
+}
+
+#campoBusca {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-right: 12px;
+}
+
+

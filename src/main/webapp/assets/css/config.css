@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #e0f5ec;
+  color: #333;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #27ae60;
+  padding: 1rem 2rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+}
+.logo img {
+  height: 50px;
+  margin-right: 12px;
+}
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+nav a.active {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+#authLink {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+#authLink:hover {
+  background: #222;
+}
+
+main {
+  flex: 1;
+  padding: 60px 20px;
+}
+.config-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.section-title {
+  font-size: 1.8rem;
+  color: #1db954;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.user-info p {
+  font-size: 1rem;
+  margin: 12px 0;
+  line-height: 1.4;
+}
+.user-info p strong {
+  display: inline-block;
+  width: 100px;
+  color: #27ae60;
+}
+
+.footer {
+  background-color: #014d3a;
+  color: #e0f5ec;
+  padding: 40px 20px 20px;
+  font-size: 0.95rem;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+.footer-col {
+  flex: 1 1 220px;
+}
+.footer-logo {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.footer-col p {
+  color: #c2e0d3;
+  margin-bottom: 10px;
+}
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #26735c;
+  font-size: 0.85rem;
+  color: #b2dacf;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .config-container {
+    padding: 20px;
+  }
+}

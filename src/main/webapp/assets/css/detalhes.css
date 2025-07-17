@@ -1,0 +1,119 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;  
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #27ae60;
+  padding: 1rem 2rem;
+}
+header .logo { display: flex; align-items: center; font-weight: bold; font-size: 1.5rem; color: #000; }
+header .logo img { height: 50px; margin-right: 0.5rem; }
+header nav { display: flex; gap: 1rem; }
+header nav a { color: #000; text-decoration: none; font-weight: 500; }
+header nav a.active { text-decoration: underline; }
+header .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+header .header-actions input {
+  padding: 0.5rem; border-radius: 4px; border: 1px solid #ccc;
+}
+header .header-actions .btn-vermelho {
+  background: #dc3545; color: #fff; padding: 0.5rem 1rem; border-radius: 4px;
+}
+main h1 {
+  font-size:2rem; color:#333; margin:24px 0;
+}
+
+.product-container {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  background:#fff; padding:24px; border-radius:0 0 8px 8px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.product-image img {
+  width:100%; object-fit:contain;
+  border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+.product-info h1 {
+  color:#27ae60; margin-bottom:16px; font-size:1.8rem;
+}
+
+.detalhes {
+  list-style:none; margin-bottom:32px;
+}
+.detalhes li {
+  display:flex; justify-content:space-between;
+  padding:8px 0; border-bottom:1px solid #eee;
+}
+.detalhes li:last-child { border-bottom:none; }
+
+.comments-section {
+  max-width: 900px;
+  margin: 32px auto;
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.comments-section h2 {
+  margin-bottom: 16px;
+  color: #27ae60;
+  font-size: 1.4rem;
+}
+#lista-comentarios { list-style: none; padding: 0; }
+#lista-comentarios li {
+  border-left: 4px solid #27ae60;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  background: #fafafa;
+  border-radius: 4px;
+}
+#lista-comentarios li p { margin: 4px 0; }
+#novo-comentario textarea {
+  width: 100%; height: 80px; padding: 8px;
+  border: 1px solid #ccc; border-radius: 4px; resize: vertical;
+  margin-bottom: 12px;
+}
+#novo-comentario input[type="number"] {
+  width: 60px; padding: 6px; margin-left: 8px;
+}
+#novo-comentario button {
+  background: #27ae60; color: white; border: none;
+  padding: 10px 20px; border-radius: 4px; cursor: pointer;
+}
+
+#authLink {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+#authLink.btn-entrar {
+  background-color: #333;
+}
+#authLink.btn-entrar:hover {
+  background-color: #333;
+}
+
+#authLink.btn-sair {
+  background-color: #DC3545;
+}
+#authLink.btn-sair:hover {
+  background-color: #C82333;
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<title>Registro - FarmControl</title>
+<link rel="stylesheet" href="assets/css/registro.css">
+<script src="assets/js/registro.js" defer></script>
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<div class="logo">
+				<img src="img/FarmControl.png" alt="FarmControl"> <span>FarmControl</span>
+			</div>
+			<nav>
+				<a href="index.html">Home</a> <a href="sobre.html">Sobre o
+					Sistema</a> <a href="filtro-categoria.html">Categoria</a> <a
+					href="login.html">Login</a>
+			</nav>
+		</header>
+		<main class="main-content">
+			<h1>Registrar nova conta</h1>
+
+			<div id="erro" style="color: red; margin-bottom: 1em;"></div>
+
+			<form action="RegistrarUsuarioServlet" method="post">
+				<input type="text" name="nome" placeholder="Nome completo" required /><br />
+				<input type="email" name="email" placeholder="E‑mail" required /><br />
+				<input type="password" name="senha" placeholder="Senha" required /><br />
+				<select name="perfil" required>
+					<option value="">Selecione perfil</option>
+					<option value="Usuario">Usuário</option>
+					<option value="Avaliador">Avaliador</option>
+				</select><br /> <br />
+				<button type="submit" class="btn btn-azul">Registrar</button>
+			</form>
+
+			<p>
+				Já tem uma conta? <a href="login.html">Faça login</a>
+			</p>
+		</main>
+
+	</div>
+</body>
+</html>

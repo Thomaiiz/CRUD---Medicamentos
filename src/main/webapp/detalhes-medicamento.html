@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Detalhes do Medicamento</title>
+<link rel="stylesheet" href="assets/css/detalhes.css">
+<script src="assets/js/detalhesMedicamento.js" defer></script>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img src="img/FarmControl.png" alt="FarmControl"> <span>FarmControl</span>
+		</div>
+		<nav>
+			<a href="index.html">Home</a> <a href="sobre.html">Sobre o
+				Sistema</a> <a href="configuracoes.html">Configurações</a> <a
+				href="lista-medicamentos.html">Medicamentos Cadastrados</a> <a
+				class="active" href="filtro-categoria.html">Categorias</a>
+		</nav>
+		<div class="navbar-right">
+			<div class="navbar-right">
+				<a id="authLink" class="btn-login" href="login.html">Entrar</a>
+			</div>
+			<script src="assets/js/session.js" defer></script>
+	</header>
+
+	<main class="container">
+		<h1>Detalhes do Medicamento</h1>
+
+		<div class="product-container">
+			<div class="product-image">
+				<img id="med-img" src="" alt="Medicamento">
+			</div>
+			<div class="product-info">
+				<h1 id="med-nome"></h1>
+				<ul id="med-detalhes" class="detalhes"></ul>
+			</div>
+		</div>
+
+		<section id="comentarios" class="comments-section">
+			<h2>Comentários</h2>
+			<ul id="lista-comentarios"></ul>
+		</section>
+
+		<section id="novo-comentario" class="comments-section"></section>
+	</main>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Medicamentos</title>
+<link rel="stylesheet" href="assets/css/lista.css">
+<script src="assets/js/listaMedicamentos.js" defer></script>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img src="img/FarmControl.png" alt="FarmControl"> <span>FarmControl</span>
+		</div>
+		<nav id="menu">
+			<a href="index.html">Home</a> <a href="sobre.html">Sobre o
+				Sistema</a><a href="configuracoes.html">Configurações</a> <a
+				href="lista-medicamentos.html">Medicamentos Cadastrados</a> <a
+				href="filtro-categoria.html">Categorias</a>
+		</nav>
+		<div class="navbar-right">
+			<div class="navbar-right">
+				<input id="campoBusca" class="search-input" type="text"
+					placeholder="Pesquisar..." /> <a id="authLink" class="btn-login"
+					href="login.html">Entrar</a>
+			</div>
+			<script src="assets/js/session.js" defer></script>
+	</header>
+
+	<main class="main-content">
+		<h1>Medicamentos Cadastrados</h1>
+		<p id="mensagem" style="color: red; margin-top: .5em;"></p>
+		<div id="cardsMedicamentos" class="cards-container"></div>
+	</main>
+
+	<footer class="footer">
+		<div class="footer-container">
+			<div class="footer-col">
+				<div class="footer-logo">FarmControl</div>
+				<p>Sua saúde é nossa prioridade. Oferecemos os melhores
+					medicamentos com preços acessíveis.</p>
+			</div>
+		</div>
+		<div class="footer-bottom">&copy; 2025 FarmControl. Todos os
+			direitos reservados.</div>
+	</footer>
+</body>
+</html>
